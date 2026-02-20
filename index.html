@@ -316,6 +316,7 @@ nav {
 section {
   padding: 8rem 3rem;
   position: relative;
+  overflow: hidden;
 }
 
 .section-label {
@@ -875,30 +876,6 @@ footer {
   display: block;
 }
 
-.video-sound-toggle {
-  position: absolute;
-  bottom: 1.2rem;
-  right: 1.2rem;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.3);
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(8px);
-  color: var(--white);
-  font-size: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.video-sound-toggle:hover {
-  border-color: var(--accent);
-  background: rgba(232, 85, 58, 0.2);
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
@@ -988,10 +965,9 @@ footer {
   <div class="video-wrapper reveal">
     <p class="video-label">Featured</p>
     <div class="video-container">
-      <video id="heroVideo" autoplay muted loop playsinline>
+      <video autoplay muted loop playsinline>
         <source src="https://github.com/takayuki017/bravery-ai-hub/releases/download/v1.0/Bravery.mp4" type="video/mp4">
       </video>
-      <button class="video-sound-toggle" id="soundToggle" aria-label="Toggle sound">🔇</button>
     </div>
   </div>
 </section>
@@ -1298,15 +1274,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Sound toggle
-const video = document.getElementById('heroVideo');
-const toggleBtn = document.getElementById('soundToggle');
-if (video && toggleBtn) {
-  toggleBtn.addEventListener('click', () => {
-    video.muted = !video.muted;
-    toggleBtn.textContent = video.muted ? '🔇' : '🔊';
-  });
-}
+
 </script>
 
 </body>
