@@ -865,19 +865,13 @@ footer {
 
 .video-container {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
 }
 
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
+.video-container video {
   width: 100%;
-  height: 100%;
-  border: 0;
+  display: block;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -968,7 +962,9 @@ footer {
   <div class="video-wrapper reveal">
     <p class="video-label">Featured</p>
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/nzkG5EQNqEE?rel=0&modestbranding=1&color=white" title="BRAVERY AI HUB" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <video autoplay muted loop playsinline>
+        <source src="https://github.com/takayuki017/bravery-ai-hub/releases/download/v1.0/Bravery.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </section>
