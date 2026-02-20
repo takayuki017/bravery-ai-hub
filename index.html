@@ -30,6 +30,8 @@ body {
   font-family: 'DM Mono', monospace;
   overflow-x: hidden;
   cursor: crosshair;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* ===== CUSTOM CURSOR TRAIL ===== */
@@ -179,8 +181,7 @@ nav {
 .hero {
   height: 100vh;
   width: 100%;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -272,16 +273,18 @@ nav {
 }
 
 .hero-scroll {
-  position: absolute;
+  position: fixed;
   bottom: 3rem;
   left: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  pointer-events: none;
   opacity: 0;
   animation: fadeUp 1s ease 3.5s forwards;
+  transition: opacity 0.5s ease;
 }
 
 .hero-scroll span {
@@ -1277,6 +1280,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Hide scroll indicator after scrolling past hero
+const heroScroll = document.querySelector('.hero-scroll');
+const heroSection = document.querySelector('.hero');
+if (heroScroll && heroSection) {
+  window.addEventListener('scroll', () => {
+    heroScroll.style.opacity = window.scrollY > heroSection.offsetHeight * 0.3 ? '0' : '';
+  });
+}
 
 </script>
 
